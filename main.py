@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-from spotify import login_url
+from spotify import *
 
 app = Flask(__name__)
 
@@ -21,7 +21,7 @@ def spotify():
 
 @app.route("/login/spotify/callback", methods=["GET", "POST"])
 def callback():
-	access_code = request.args.get('code')
-	return "ummmm"
+	code = request.args.get('code')
+	return get_playlist("no", str(code))
 
 app.run("0.0.0.0")
