@@ -1,0 +1,6 @@
+#ignore .lock files
+*.lock
+
+#ignore pycache folders
+__pycache__
+/packages/__pycache__
