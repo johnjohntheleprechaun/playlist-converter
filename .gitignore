@@ -4,3 +4,7 @@
 #ignore pycache folders
 __pycache__
 /packages/__pycache__
+
+.replit
+
+.git
