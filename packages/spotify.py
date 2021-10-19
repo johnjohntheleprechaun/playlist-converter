@@ -22,3 +22,12 @@ def get_token(client_id: str, client_secret: str, code: str, redirect_uri: str):
 
 	r = requests.post("https://accounts.spotify.com/api/token?", data=url_data)
 	return r.json()
+
+def get_playlist_items(playlist_id: str, token: str):
+	url = "https://api.spotify.com/v1/playlists/{playlist_id}/tracks".format(playlist_id=playlist_id)
+	headers = {
+		"Accept": "application/json",
+		"Authorization": "Bearer {token}".format(token=token)
+	}
+	r = requests.get(url, headers=headers)
+	return r.json()["items"]

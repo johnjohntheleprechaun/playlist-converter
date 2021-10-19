@@ -35,6 +35,7 @@ def spotify_login(): #get user authorization code in order to get access token
 def callback():
 	code = request.args.get('code') #Extract code from GET request
 	token = spotify.get_token(CLIENT_ID, CLIENT_SECRET, code, REDIRECT_URI) #Get access token from spotify
-	return render_template("results/spotify.html", token=token["access_token"])
+	songs = spotify.get_playlist_items("1IXiINq3m36o0r4NkG6wXI", token["access_token"])
+	return render_template("results/spotify.html", token=token["access_token"], songs=songs)
 
 app.run("0.0.0.0")

@@ -4,7 +4,6 @@
 #ignore pycache folders
 __pycache__
 /packages/__pycache__
-
-.replit
-
-.git
+pyproject.toml
+".replit"
+".git"
