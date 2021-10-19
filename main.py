@@ -10,7 +10,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return render_template('homepage/index.html') #Return the homepage HTML
+    return render_template("homepage/index.html", yup="hmmm") #Return the homepage HTML
+
+@app.route("/test")
+def test():
+	names = ["John", "Daniel", "Pearl", "Noah", "Andrew", "Rebecca"]
+	return render_template("test.html", names=names)
 
 @app.route("/login")
 def login():
@@ -30,6 +35,6 @@ def spotify_login(): #get user authorization code in order to get access token
 def callback():
 	code = request.args.get('code') #Extract code from GET request
 	token = spotify.get_token(CLIENT_ID, CLIENT_SECRET, code, REDIRECT_URI) #Get access token from spotify
-	return token
+	return render_template("results/spotify.html", token=token["access_token"])
 
 app.run("0.0.0.0")

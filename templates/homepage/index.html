@@ -5,17 +5,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>A Basic HTML5 Template</title>
+  <title>SpoTube</title>
   <meta name="description" content="A spotify/youtube playlist translator">
   <meta name="author" content="John Jorgensen">
 
-  <link rel="stylesheet" href="styles.css?v=1.0">
+  <link rel="stylesheet" href="{{ url_for('homepage', filename='styles.css') }}">
 
 </head>
 
 <body>
   <!-- your content here... -->
+  <h1>{{ yup }}</h1>
   <button onclick="location.href = '/login/spotify'">TEST</button>
-  <script src="main.js"></script>
+  <script src="{{ url_for('homepage', filename='main.js') }}"></script>
 </body>
 </html>
