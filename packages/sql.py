@@ -2,6 +2,12 @@
 import sqlite3
 from sqlite3 import Error
 
+TABLE_CREATION = """
+CREATE TABLE IF NOT EXISTS {table_name} (
+	{data_str}
+);
+"""
+
 def create_connection(path: str):
 	connection = None
 	try:
@@ -11,6 +17,12 @@ def create_connection(path: str):
 		print("the error was: {}".format(e))
 
 	return connection
+
+def create_table(connection: sqlite3.Connection, name: str, columns: dict):
+	data_str = ""
+	for column in columns:
+		data_str += "{name} {data_type}".format(name=column, data_type=columns[column])
+	print(data_str)
 
 def write_query(connection: sqlite3.Connection, query: str):
 	cursor = connection.cursor()
