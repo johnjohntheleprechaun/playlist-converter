@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return render_template("homepage/index.html", yup="hmmm") #Return the homepage HTML
+    return render_template("homepage/index.html", yup="hmmm", nav_buttons=["test", "yesy", "chicken", "guess", "bessy", "aldksjfalkjhelkjahfsldkjhflaksjhflkjehasl"]) #Return the homepage HTML
 
 @app.route("/test")
 def test():

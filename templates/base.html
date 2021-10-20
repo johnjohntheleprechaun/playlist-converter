@@ -1,4 +1,3 @@
-{% extends "base.html" %}
 <!doctype html>
 
 <html lang="en">
@@ -8,12 +7,17 @@
 	<title>SpoTube</title>
 	<meta name="description" content="A spotify/youtube playlist translator">
 	<meta name="author" content="John Jorgensen">
-	<link rel="stylesheet" href="{{ url_for('homepage', filename='styles.css') }}">
+	<link rel="stylesheet" href={{ css_location }}>
 </head>
 
 <body>
-	{% set navbuttons = ["test", "let us gooooo"] %}
-	{% block navbar %}{% endblock %}
+	{% block navbar %}
+	<nav>
+		{% for nav_button in nav_buttons %}
+			<button type="button" class=navbutton>{{ nav_button }}</button>
+		{% endfor %}
+	</nav>
+	{% endblock %}
 	<button onclick="location.href = '/login/spotify'">TEST</button>
 	<script src="{{ url_for('homepage', filename='main.js') }}"></script>
 </body>
