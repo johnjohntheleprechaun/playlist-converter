@@ -5,5 +5,6 @@
 __pycache__
 /packages/__pycache__
 pyproject.toml
-".replit"
-".git"
+.git
+.vscode
+.replit
